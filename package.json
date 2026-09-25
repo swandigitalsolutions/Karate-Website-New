@@ -14,7 +14,7 @@
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
     "format": "prettier --write .",
-    "deploy": "vite build && wrangler deploy"
+    "deploy": "pnpm run build:web && pnpm exec wrangler deploy"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

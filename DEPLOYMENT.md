@@ -31,7 +31,7 @@ Cloudflare detects `wrangler.jsonc` automatically. Check the fields match:
 | --- | --- |
 | Project name | `karate-website-new` — **must match** `name` in `wrangler.jsonc` |
 | Production branch | `main` |
-| Build command | `pnpm run build:web` |
+| Build command | `pnpm run build:web` — **required; do not leave this as None** |
 | Deploy command | `npx wrangler deploy` (default) |
 | Root directory | leave empty |
 
@@ -39,7 +39,7 @@ No environment variables or secrets are needed.
 
 ### 3. Deploy
 
-Click **Save and Deploy**. The first build takes 2–3 minutes. When it finishes the site is live at
+Click **Save and Deploy**. If the build settings show **Build command: None**, enter `pnpm run build:web` before saving. The first build takes 2–3 minutes. When it finishes the site is live at
 `https://karate-website-new.<your-subdomain>.workers.dev`.
 
 ### 4. Add your own domain (optional)
