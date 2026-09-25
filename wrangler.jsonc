@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Must match the Worker name in the Cloudflare dashboard for Git-connected builds.
+  "name": "karate-website-new",
+  "compatibility_date": "2026-09-25",
+  // Static site only: Cloudflare serves the Vite build directly, no Worker script needed.
+  "assets": {
+    "directory": "./dist/public",
+    "not_found_handling": "single-page-application"
+  }
+}

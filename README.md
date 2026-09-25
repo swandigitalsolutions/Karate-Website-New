@@ -17,8 +17,10 @@ pnpm dev        # http://localhost:3000
 
 ```bash
 pnpm build      # builds the site to dist/public and the server to dist/index.js
-pnpm start      # serves dist/ (sets long-lived cache headers for hashed assets)
+pnpm start      # serves dist/ with Express (for Node hosting)
 ```
+
+To deploy on **Cloudflare** or **Vercel** (recommended — static hosting, no server), see [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## Editing content
 
