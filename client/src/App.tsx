@@ -5,7 +5,7 @@ import { About } from "@/sections/About";
 import { Champions } from "@/sections/Champions";
 import { Contact, Cta } from "@/sections/Contact";
 import { Faq } from "@/sections/Faq";
-import { Footer, WhatsAppButton } from "@/sections/Footer";
+import { FloatingActions, Footer } from "@/sections/Footer";
 import { Gallery } from "@/sections/Gallery";
 import { Hero } from "@/sections/Hero";
 import { Master } from "@/sections/Master";
@@ -31,7 +31,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppButton />
+      <FloatingActions />
     </>
   );
 }

@@ -1516,23 +1516,73 @@ a.contact-card:hover {
 }
 
 /* ---------- whatsapp ---------- */
-.wa-fab {
+.fab-stack {
   position: fixed;
   z-index: 80;
   right: 20px;
   bottom: 20px;
   display: grid;
+  gap: 12px;
+}
+.fab {
+  position: relative;
+  display: grid;
   place-items: center;
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #25d366;
   color: #fff;
-  box-shadow: 0 14px 30px -8px rgba(37, 211, 102, 0.6);
   transition: transform 0.5s var(--ease);
 }
-.wa-fab:hover {
+.fab:hover {
   transform: scale(1.08);
+}
+.fab-call {
+  background: var(--ink);
+  box-shadow: 0 14px 30px -8px rgba(11, 11, 12, 0.5);
+}
+.fab-call::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(255, 91, 31, 0.55);
+  animation: ring 2.6s infinite;
+}
+@keyframes ring {
+  70% {
+    box-shadow: 0 0 0 12px rgba(255, 91, 31, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 91, 31, 0);
+  }
+}
+.fab-wa {
+  background: #25d366;
+  box-shadow: 0 14px 30px -8px rgba(37, 211, 102, 0.6);
+}
+/* Hover label for mouse users. */
+.fab::before {
+  content: attr(data-label);
+  position: absolute;
+  right: calc(100% + 12px);
+  padding: 7px 12px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.4s var(--ease);
+}
+@media (hover: hover) {
+  .fab:hover::before {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ---------- lightbox ---------- */
@@ -1808,11 +1858,14 @@ a.contact-card:hover {
   .faq-item button {
     font-size: 16.5px;
   }
-  .wa-fab {
-    width: 52px;
-    height: 52px;
+  .fab-stack {
     right: 14px;
     bottom: 14px;
+    gap: 10px;
+  }
+  .fab {
+    width: 52px;
+    height: 52px;
   }
 }
 

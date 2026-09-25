@@ -1,4 +1,4 @@
-import { ArrowUp, Instagram, MessageCircle, Youtube } from "lucide-react";
+import { ArrowUp, Instagram, MessageCircle, Phone, Youtube } from "lucide-react";
 import { Logo } from "@/components/Nav";
 import { navItems } from "@/data/content";
 import { defaultWhatsappMessage, site, whatsappLink } from "@/data/site";
@@ -45,10 +45,16 @@ export function Footer() {
   );
 }
 
-export function WhatsAppButton() {
+/** Floating quick-contact buttons, always within thumb reach: call above, WhatsApp below. */
+export function FloatingActions() {
   return (
-    <a className="wa-fab" href={whatsappLink(defaultWhatsappMessage)} target="_blank" rel="noreferrer" aria-label="Chat with us on WhatsApp">
-      <MessageCircle size={24} />
-    </a>
+    <div className="fab-stack">
+      <a className="fab fab-call" href={`tel:${site.phone.replace(/\s/g, "")}`} aria-label={`Call us at ${site.phone}`} data-label="Call us">
+        <Phone size={22} />
+      </a>
+      <a className="fab fab-wa" href={whatsappLink(defaultWhatsappMessage)} target="_blank" rel="noreferrer" aria-label="Chat with us on WhatsApp" data-label="WhatsApp">
+        <MessageCircle size={24} />
+      </a>
+    </div>
   );
 }
